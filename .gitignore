@@ -290,3 +290,4 @@ pyrightconfig.json
 *.xml
 *.xml
 .idea/workspace.xml
+*.zip
