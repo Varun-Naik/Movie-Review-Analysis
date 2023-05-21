@@ -28,7 +28,7 @@ best_model = TFBertForSequenceClassification.from_pretrained(model_path)
 
 
 
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 
 @app.route('/')
