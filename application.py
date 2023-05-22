@@ -7,7 +7,8 @@ import numpy as np
 from transformers import TFBertForSequenceClassification
 from transformers import BertTokenizer
 
-import tensorflow as tf
+# import tensorflow as tf
+from scipy.special import softmax
 
 import os
 
@@ -56,10 +57,13 @@ def analyze():
 
         # Get the sentiment predictions
         tf_output = tf_output[0]
-        tf_prediction = tf.nn.softmax(tf_output, axis=1)
+        # tf_prediction = tf.nn.softmax(tf_output, axis=1)
+        tf_prediction = softmax(tf_output.numpy(), axis=1)
         labels = ['Negative', 'Positive']  # (0:negative, 1:positive)
-        label = tf.argmax(tf_prediction, axis=1)
-        label = label.numpy()
+        # label = tf.argmax(tf_prediction, axis=1)
+        label = np.argmax(tf_prediction, axis=1)
+
+        # label = label.numpy()
         average_sentiment_score = np.mean(label)
         positive_count = sum(label)
         negative_count = len(label) - positive_count
