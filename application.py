@@ -7,7 +7,7 @@ import numpy as np
 from transformers import TFBertForSequenceClassification
 from transformers import BertTokenizer
 
-# import tensorflow as tf
+import tensorflow as tf
 from scipy.special import softmax
 
 import os
