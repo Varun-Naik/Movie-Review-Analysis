@@ -1,19 +1,15 @@
-FROM ubuntu:16.04
+# syntax=docker/dockerfile:1
 
-MAINTAINER Varun Naik "varunnaik29@gmail.com"
+FROM python:3.8-slim-buster
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev && \
-    pip install --upgrade pip
+WORKDIR /python-docker
 
-COPY . /app
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-WORKDIR /app
+COPY . .
 
-RUN pip install -r requirements.txt
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python3" ]
 
-EXPOSE 5000
-
-ENTRYPOINT [ "python" ]
-
-CMD [ "application.py" ]
+CMD ["application.py" ]
