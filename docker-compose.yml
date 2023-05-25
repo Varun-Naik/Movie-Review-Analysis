@@ -1,8 +1,9 @@
 
-version: '3'
+version: '3.0'
 
 services:
   myservice:
+    image: varunnaik29/sentiment_analysis:v1.0
     build:
       context: .
       dockerfile: Dockerfile
