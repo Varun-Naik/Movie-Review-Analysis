@@ -292,6 +292,7 @@ pyrightconfig.json
 .idea/workspace.xml
 *.zip
 
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
