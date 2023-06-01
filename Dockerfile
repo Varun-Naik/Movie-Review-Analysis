@@ -10,7 +10,8 @@ RUN pip3 --no-cache-dir install -r requirements.txt
 COPY . .
 
 EXPOSE 5000
+
 # configure the container to run in an executed manner
 ENTRYPOINT [ "python3" ]
 
-CMD ["application.py" ]
+CMD ["app.py" ]
